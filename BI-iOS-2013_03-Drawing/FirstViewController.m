@@ -62,7 +62,22 @@
 
 - (void)panRecognized:(UIPanGestureRecognizer *)recognizer
 {
+    CGPoint point = [recognizer translationInView:self.view];
 
+    CGPoint center = self.chartView.center;
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            ;
+            break;
+        case UIGestureRecognizerStateRecognized:
+        {
+            self.chartView.center = CGPointMake(center.x + point.x, center.y + point.y);
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - PanelViewDelegate
