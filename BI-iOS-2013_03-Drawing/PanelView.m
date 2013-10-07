@@ -49,12 +49,10 @@
 //        
 //    }
     UISlider *slider = (UISlider *)object;
-    
-    NSLog(@"%f", slider.value);
-    
-    
-    if (self.delegate) {
-        [self.delegate panelView:self sliderChanged:slider];
+
+    if ([self.delegate respondsToSelector:@selector(panelView:sliderChanged:)]) {
+        [self.delegate panelView:self
+                   sliderChanged:slider];
     }
 
 }

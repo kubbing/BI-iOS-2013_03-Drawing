@@ -52,4 +52,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - PanelViewDelegate
+
+- (void)panelView:(PanelView *)panelView sliderChanged:(UISlider *)slider
+{
+    NSLog(@"delegate: %f", slider.value);
+}
+
 @end
