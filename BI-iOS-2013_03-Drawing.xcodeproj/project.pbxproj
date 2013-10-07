@@ -402,6 +402,7 @@
 				GCC_PREFIX_HEADER = "BI-iOS-2013_03-Drawing/BI-iOS-2013_03-Drawing-Prefix.pch";
 				INFOPLIST_FILE = "BI-iOS-2013_03-Drawing/BI-iOS-2013_03-Drawing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -415,6 +416,7 @@
 				GCC_PREFIX_HEADER = "BI-iOS-2013_03-Drawing/BI-iOS-2013_03-Drawing-Prefix.pch";
 				INFOPLIST_FILE = "BI-iOS-2013_03-Drawing/BI-iOS-2013_03-Drawing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

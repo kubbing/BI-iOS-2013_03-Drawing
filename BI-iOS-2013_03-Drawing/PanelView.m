@@ -31,13 +31,43 @@
         [self addSubview:slider];
         self.slider = slider;
         
-        [NSTimer scheduledTimerWithTimeInterval:(1/30)
-                                         target:self
-                                       selector:@selector(timerFired:)
-                                       userInfo:@"I am timer!"
-                                        repeats:YES];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:(1/30)
+                                                        target:self
+                                                      selector:@selector(timerFired:)
+                                                      userInfo:@"I am timer!"
+                                                       repeats:YES];
+        
+                clock_t t0 = clock();
+        
+        [self performSelector:@selector(invalidateTimer:)
+                   withObject:@{ @"timer" : timer,
+                                 @"t0" : @(t0) }
+                   afterDelay:5];
+        
+
+        
+//        double delayInSeconds = 5.0;
+//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//            [timer invalidate];
+//            
+//            clock_t t1 = clock();
+//            
+//            NSLog(@"%f", (t1 - t0)/(double)CLOCKS_PER_SEC);
+//        });
     }
     return self;
+}
+
+- (void)invalidateTimer:(NSDictionary *)userInfo
+{
+    NSTimer *timer = userInfo[@"timer"];
+    [timer invalidate];
+    clock_t t0 = [userInfo[@"t0"] longValue];
+    
+    clock_t t1 = clock();
+    
+    NSLog(@"%f", (t1 - t0)/(double)CLOCKS_PER_SEC);
 }
 
 - (void)layoutSubviews
