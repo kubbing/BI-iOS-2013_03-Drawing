@@ -30,6 +30,12 @@
         
         [self addSubview:slider];
         self.slider = slider;
+        
+        [NSTimer scheduledTimerWithTimeInterval:(1/30)
+                                         target:self
+                                       selector:@selector(timerFired:)
+                                       userInfo:@"I am timer!"
+                                        repeats:YES];
     }
     return self;
 }
@@ -42,6 +48,14 @@
 }
 
 #pragma mark - Actions
+
+- (void)timerFired:(NSTimer *)timer
+{
+    CGFloat value = self.slider.value;
+    value += 0.001;
+    self.slider.value = value;
+    [self sliderValueChanged:self.slider];
+}
 
 - (void)sliderValueChanged:(id)object // UISlider *slider
 {
