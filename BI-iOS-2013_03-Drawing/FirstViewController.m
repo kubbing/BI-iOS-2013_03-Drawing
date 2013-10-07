@@ -38,7 +38,7 @@
     panelView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     panelView.delegate = self;
     panelView.onSlide = ^(CGFloat value) {
-        NSLog(@"from block: %f", value);
+//        NSLog(@"from block: %f", value);
     };
     [self.view addSubview:panelView];
     self.panelView = panelView;
@@ -64,14 +64,18 @@
 {
     CGPoint point = [recognizer translationInView:self.view];
 
-    CGPoint center = self.chartView.center;
+    static CGPoint center;
     
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
-            ;
-            break;
-        case UIGestureRecognizerStateRecognized:
         {
+            NSLog(@"UIGestureRecognizerStateBegan");
+            center = self.chartView.center;
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            NSLog(@"UIGestureRecognizerStateChanged");
             self.chartView.center = CGPointMake(center.x + point.x, center.y + point.y);
         }
             break;
@@ -84,7 +88,7 @@
 
 - (void)panelView:(PanelView *)panelView sliderChanged:(UISlider *)slider
 {
-    NSLog(@"%f", slider.value);
+//    NSLog(@"%f", slider.value);
     
     self.chartView.amp = slider.value;
 }
