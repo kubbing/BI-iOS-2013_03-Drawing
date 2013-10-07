@@ -24,6 +24,7 @@
         self.backgroundColor = [UIColor redColor];
         
         UISlider *slider = [[UISlider alloc] initWithFrame:CGRectZero];
+        [slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:slider];
         self.slider = slider;
     }
@@ -37,13 +38,19 @@
     self.slider.frame = CGRectMake(8, 8, CGRectGetWidth(self.bounds) - 16, 44);
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+#pragma mark - Actions
+
+- (void)sliderValueChanged:(id)object
 {
-    // Drawing code
+    UISlider *slider = (UISlider *)object;
+    NSLog(@"%f", slider.value);
+    
+    if ([self.delegate respondsToSelector:@selector(panelView:sliderChanged:)]) {
+        [self.delegate panelView:self
+                   sliderChanged:slider];
+    }
 }
-*/
+
+
 
 @end
