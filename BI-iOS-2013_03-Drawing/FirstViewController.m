@@ -27,6 +27,10 @@
     
     ChartView *chartView = [[ChartView alloc] initWithFrame:CGRectZero];
     chartView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
+    [chartView addGestureRecognizer:recognizer];
+    
     [self.view addSubview:chartView];
     self.chartView = chartView;
     
@@ -38,7 +42,7 @@
     
 //    __weak typeof(self) blockSelf = self;
     panelview.onSliderChange = ^(CGFloat value) {
-        NSLog(@"block: %f", value);
+//        NSLog(@"block: %f", value);
 //        blockSelf.chartView.amp = value;
     };
 }
@@ -58,11 +62,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+
+- (void)panRecognized:(UIPanGestureRecognizer *)recognizer
+{
+    CGPoint point = [recognizer translationInView:self.view];
+    NSLog(@"(%f, %f)", point.x, point.y);
+    
+    static CGPoint center;
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            center = self.chartView.center;
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            self.chartView.center = CGPointMake(center.x + point.x, center.y + point.y);
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 #pragma mark - PanelViewDelegate
 
 - (void)panelView:(PanelView *)panelView sliderChanged:(UISlider *)slider
 {
-    NSLog(@"delegate: %f", slider.value);
+//    NSLog(@"delegate: %f", slider.value);
     
     self.chartView.amp = slider.value;
 }
