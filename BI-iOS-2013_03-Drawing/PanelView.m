@@ -24,6 +24,10 @@
         self.backgroundColor = [UIColor lightGrayColor];
         
         UISlider *slider = [[UISlider alloc] initWithFrame:CGRectZero];
+        [slider addTarget:self
+                   action:@selector(sliderValueChanged:)
+         forControlEvents:UIControlEventValueChanged];
+        
         [self addSubview:slider];
         self.slider = slider;
     }
@@ -37,13 +41,16 @@
     self.slider.frame = CGRectMake(8, 8, CGRectGetWidth(self.bounds) - 16, 44);
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+#pragma mark - Actions
+
+- (void)sliderValueChanged:(id)object // UISlider *slider
 {
-    // Drawing code
+//    if ([object isKindOfClass:[UISlider class]]) {
+//        
+//    }
+    UISlider *slider = (UISlider *)object;
+    
+    NSLog(@"%f", slider.value);
 }
-*/
 
 @end
