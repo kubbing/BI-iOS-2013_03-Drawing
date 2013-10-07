@@ -20,13 +20,25 @@
     return self;
 }
 
-/*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    [super drawRect:rect];
+    
+    CGContextRef contextRef =  UIGraphicsGetCurrentContext();
+    
+    CGContextFillRect(contextRef, CGRectMake(8, 8, 100, 100));
+    
+    CGContextSetStrokeColorWithColor(contextRef, [UIColor blackColor].CGColor);
+    CGContextSetLineWidth(contextRef, 2);
+    CGContextMoveToPoint(contextRef, 0, 0);
+    
+    for (NSInteger i = 0; i < 512; i += 4) {
+        CGContextAddLineToPoint(contextRef, i, CGRectGetHeight(self.bounds)/2.0 + 20 *sinf(i));
+    }
+    
+    CGContextStrokePath(contextRef);
 }
-*/
 
 @end
