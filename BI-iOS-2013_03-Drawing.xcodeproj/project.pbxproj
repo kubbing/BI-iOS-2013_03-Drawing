@@ -22,6 +22,8 @@
 		17E288D71802735A001EFA14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E288B618027359001EFA14 /* UIKit.framework */; };
 		17E288DF1802735A001EFA14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17E288DD1802735A001EFA14 /* InfoPlist.strings */; };
 		17E288E11802735A001EFA14 /* BI_iOS_2013_03_DrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E288E01802735A001EFA14 /* BI_iOS_2013_03_DrawingTests.m */; };
+		17E288F218029A2F001EFA14 /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E288F118029A2F001EFA14 /* ChartView.m */; };
+		17E288F518029A37001EFA14 /* PanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E288F418029A37001EFA14 /* PanelView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		17E288DC1802735A001EFA14 /* BI-iOS-2013_03-DrawingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BI-iOS-2013_03-DrawingTests-Info.plist"; sourceTree = "<group>"; };
 		17E288DE1802735A001EFA14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17E288E01802735A001EFA14 /* BI_iOS_2013_03_DrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BI_iOS_2013_03_DrawingTests.m; sourceTree = "<group>"; };
+		17E288F018029A2F001EFA14 /* ChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartView.h; sourceTree = "<group>"; };
+		17E288F118029A2F001EFA14 /* ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
+		17E288F318029A37001EFA14 /* PanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelView.h; sourceTree = "<group>"; };
+		17E288F418029A37001EFA14 /* PanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,10 @@
 				17E288CB18027359001EFA14 /* SecondViewController.m */,
 				17E288CD18027359001EFA14 /* Images.xcassets */,
 				17E288B918027359001EFA14 /* Supporting Files */,
+				17E288F018029A2F001EFA14 /* ChartView.h */,
+				17E288F118029A2F001EFA14 /* ChartView.m */,
+				17E288F318029A37001EFA14 /* PanelView.h */,
+				17E288F418029A37001EFA14 /* PanelView.m */,
 			);
 			path = "BI-iOS-2013_03-Drawing";
 			sourceTree = "<group>";
@@ -256,8 +266,10 @@
 			files = (
 				17E288CC18027359001EFA14 /* SecondViewController.m in Sources */,
 				17E288C318027359001EFA14 /* AppDelegate.m in Sources */,
+				17E288F218029A2F001EFA14 /* ChartView.m in Sources */,
 				17E288C918027359001EFA14 /* FirstViewController.m in Sources */,
 				17E288BF18027359001EFA14 /* main.m in Sources */,
+				17E288F518029A37001EFA14 /* PanelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +480,7 @@
 				17E288E61802735A001EFA14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17E288E71802735A001EFA14 /* Build configuration list for PBXNativeTarget "BI-iOS-2013_03-DrawingTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +489,7 @@
 				17E288E91802735A001EFA14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

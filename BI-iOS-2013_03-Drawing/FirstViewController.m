@@ -8,7 +8,13 @@
 
 #import "FirstViewController.h"
 
+#import "ChartView.h"
+#import "PanelView.h"
+
 @interface FirstViewController ()
+
+@property (strong, nonatomic) ChartView *chartView;
+@property (strong, nonatomic) PanelView *panelView;
 
 @end
 
@@ -18,6 +24,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    ChartView *chartView = [[ChartView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:chartView];
+    self.chartView = chartView;
+    
+    PanelView *panelview = [[PanelView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:panelview];
+    self.panelView = panelview;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.chartView.frame = CGRectMake(8, 20 + 8, CGRectGetWidth(self.view.bounds) - 16, 512);
+    
+    self.panelView.frame = CGRectMake(8, 20 + 16 + 512, CGRectGetWidth(self.view.bounds) - 16, 128);
 }
 
 - (void)didReceiveMemoryWarning
