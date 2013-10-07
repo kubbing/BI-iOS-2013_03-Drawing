@@ -26,6 +26,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     ChartView *chartView = [[ChartView alloc] initWithFrame:CGRectZero];
+    
     [self.view addSubview:chartView];
     self.chartView = chartView;
     
