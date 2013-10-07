@@ -27,6 +27,12 @@
         [slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:slider];
         self.slider = slider;
+        
+        [NSTimer scheduledTimerWithTimeInterval:(1/30.0)
+                                         target:self
+                                       selector:@selector(timerFired:)
+                                       userInfo:nil
+                                        repeats:YES];
     }
     return self;
 }
@@ -40,6 +46,14 @@
 
 #pragma mark - Actions
 
+- (void)timerFired:(NSTimer *)timer
+{
+    CGFloat value = self.slider.value;
+    value += 0.001;
+    self.slider.value = value;
+    [self sliderValueChanged:self.slider];
+}
+         
 - (void)sliderValueChanged:(id)object
 {
     UISlider *slider = (UISlider *)object;
