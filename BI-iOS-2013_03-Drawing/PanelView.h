@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PanelViewDelegate;
+
 @interface PanelView : UIView
+
+@property (weak, nonatomic) id<PanelViewDelegate> delegate;
+
+@end
+
+@protocol PanelViewDelegate <NSObject>
+
+- (void)panelView:(PanelView *)panelView
+    sliderChanged:(UISlider *)slider;
 
 @end
