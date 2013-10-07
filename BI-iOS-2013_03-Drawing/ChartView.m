@@ -36,6 +36,13 @@
     
 //    [[UIColor whiteColor] setFill]; // setStroke
     
+    CGContextMoveToPoint(context, 8, CGRectGetHeight(self.bounds) / 2.0);
+    for (NSInteger i = 0; i < 900; i += 4) {
+        CGContextAddLineToPoint(context, i, 100 * sinf(i) + CGRectGetHeight(self.bounds) / 2.0);
+    }
+    
+    CGContextStrokePath(context);
+    
     
 }
 
