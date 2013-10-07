@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) id<PanelViewDelegate> delegate;
 
+@property (copy, nonatomic) void (^onSliderChange)(CGFloat value);
+
 @end
 
 @protocol PanelViewDelegate <NSObject>

@@ -35,6 +35,12 @@
     panelview.delegate = self;
     [self.view addSubview:panelview];
     self.panelView = panelview;
+    
+//    __weak typeof(self) blockSelf = self;
+    panelview.onSliderChange = ^(CGFloat value) {
+        NSLog(@"block: %f", value);
+//        blockSelf.chartView.amp = value;
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,6 +63,8 @@
 - (void)panelView:(PanelView *)panelView sliderChanged:(UISlider *)slider
 {
     NSLog(@"delegate: %f", slider.value);
+    
+    self.chartView.amp = slider.value;
 }
 
 @end

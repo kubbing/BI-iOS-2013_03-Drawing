@@ -54,7 +54,10 @@
         [self.delegate panelView:self
                    sliderChanged:slider];
     }
-
+    
+    if (self.onSliderChange) {
+        self.onSliderChange(slider.value);
+    }
 }
 
 @end
