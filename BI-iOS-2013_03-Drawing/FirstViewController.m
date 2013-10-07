@@ -26,11 +26,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     ChartView *chartView = [[ChartView alloc] initWithFrame:CGRectZero];
-    
+    chartView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:chartView];
     self.chartView = chartView;
     
     PanelView *panelview = [[PanelView alloc] initWithFrame:CGRectZero];
+    panelview.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:panelview];
     self.panelView = panelview;
 }
