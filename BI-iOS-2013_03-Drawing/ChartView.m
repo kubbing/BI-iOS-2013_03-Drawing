@@ -10,6 +10,13 @@
 
 @implementation ChartView
 
+- (void)setAmp:(CGFloat)amp
+{
+    _amp = amp;
+    
+    [self setNeedsDisplay];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -38,7 +45,7 @@
     
     CGContextMoveToPoint(context, 8, CGRectGetHeight(self.bounds) / 2.0);
     for (NSInteger i = 0; i < 900; i += 4) {
-        CGContextAddLineToPoint(context, i, 100 * sinf(i) + CGRectGetHeight(self.bounds) / 2.0);
+        CGContextAddLineToPoint(context, i, self.amp * 100 * sinf(i) + CGRectGetHeight(self.bounds) / 2.0);
     }
     
     CGContextStrokePath(context);
