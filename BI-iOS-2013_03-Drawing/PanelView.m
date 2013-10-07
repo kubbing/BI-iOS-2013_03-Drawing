@@ -8,6 +8,12 @@
 
 #import "PanelView.h"
 
+@interface PanelView ()
+
+@property (weak, nonatomic) UISlider *slider;
+
+@end
+
 @implementation PanelView
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,9 +21,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor lightGrayColor];
+        
+        UISlider *slider = [[UISlider alloc] initWithFrame:CGRectZero];
+        [self addSubview:slider];
+        self.slider = slider;
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.slider.frame = CGRectMake(8, 8, CGRectGetWidth(self.bounds) - 16, 44);
 }
 
 /*
