@@ -27,6 +27,10 @@
     
     ChartView *chartView = [[ChartView alloc] initWithFrame:CGRectZero];
     chartView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
+    [chartView addGestureRecognizer:recognizer];
+    
     [self.view addSubview:chartView];
     self.chartView = chartView;
     
@@ -52,6 +56,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (void)panRecognized:(UIPanGestureRecognizer *)recognizer
+{
+
 }
 
 #pragma mark - PanelViewDelegate
