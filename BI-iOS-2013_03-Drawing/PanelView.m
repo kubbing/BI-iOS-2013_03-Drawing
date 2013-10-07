@@ -43,7 +43,10 @@
 - (void)sliderValueChanged:(id)object
 {
     UISlider *slider = (UISlider *)object;
-    NSLog(@"%f", slider.value);
+
+    if (self.onSlide) {
+        self.onSlide(slider.value);
+    }
     
     if ([self.delegate respondsToSelector:@selector(panelView:sliderChanged:)]) {
         [self.delegate panelView:self

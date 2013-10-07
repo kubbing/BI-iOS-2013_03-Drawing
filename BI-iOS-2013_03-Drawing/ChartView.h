@@ -10,4 +10,6 @@
 
 @interface ChartView : UIView
 
+@property (assign, nonatomic) CGFloat amp;
+
 @end

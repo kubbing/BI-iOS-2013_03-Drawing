@@ -32,6 +32,10 @@
     
     PanelView *panelView = [[PanelView alloc] initWithFrame:CGRectZero];
     panelView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    panelView.delegate = self;
+    panelView.onSlide = ^(CGFloat value) {
+        NSLog(@"from block: %f", value);
+    };
     [self.view addSubview:panelView];
     self.panelView = panelView;
 }
@@ -48,6 +52,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - PanelViewDelegate
+
+- (void)panelView:(PanelView *)panelView sliderChanged:(UISlider *)slider
+{
+    NSLog(@"%f", slider.value);
+    
+    self.chartView.amp = slider.value;
 }
 
 @end

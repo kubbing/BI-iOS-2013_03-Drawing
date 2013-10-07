@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) id<PanelViewDelegate> delegate;
 
-    //@property (copy, nonatomic) void (^onSlide)(CGFloat value);
+@property (copy, nonatomic) void (^onSlide)(CGFloat value);
 
 
 

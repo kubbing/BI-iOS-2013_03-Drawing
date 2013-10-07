@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+#import "PanelView.h"
+
+@interface FirstViewController : UIViewController <PanelViewDelegate>
 
 @end
