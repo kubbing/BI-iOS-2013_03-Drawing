@@ -32,6 +32,7 @@
     
     PanelView *panelview = [[PanelView alloc] initWithFrame:CGRectZero];
     panelview.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    panelview.delegate = self;
     [self.view addSubview:panelview];
     self.panelView = panelview;
 }
